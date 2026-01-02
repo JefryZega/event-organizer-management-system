@@ -5,6 +5,7 @@ Event Organizer Management System adalah aplikasi web untuk mengelola operasiona
 
 Aplikasi ini menerapkan role-based access untuk membedakan hak akses antara pemilik usaha dan asisten, serta menggunakan basis data relasional untuk merepresentasikan alur bisnis nyata pada industri jasa event organizer.
 
+
 Key Features
 - Client, Event, and Vendor Management
 - Vendor categorization with price range reference
@@ -13,12 +14,14 @@ Key Features
 - Event and vendor collaboration reports
 - Role-based access (Owner & Assistant)
 
+
 🛠️ Tech Stack
 - Backend: Java, Spring Boot
 - Database: PostgreSQL
 - ORM: JPA
 - Security: Spring Security
 - Frontend: Thymeleaf
+
 
 What This Project Demonstrates
 - Relational database design and implementation
@@ -27,4 +30,6 @@ What This Project Demonstrates
 - Authentication and authorization concepts
 - Clean separation between business logic and data layer
 
-📌 Note: This project focuses on data management and business logic. Payment processing is intentionally excluded.
+
+📌 Catatan
+Sistem ini tidak mencakup proses pembayaran kepada vendor maupun klien. Sistem berfokus pada pencatatan data, negosiasi harga, dan estimasi anggaran event.
