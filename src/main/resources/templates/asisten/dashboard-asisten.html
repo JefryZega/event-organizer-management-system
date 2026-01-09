@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selaras Organizer</title>
+    <link rel="stylesheet" th:href="@{/css/dashboard-asisten.css}"/>
+    <script th:src="@{/js/logoutScript.js}" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <img th:src="@{/img/selaras-logo.png}" alt="logo selaras organizer"/>
+            <ul>
+                <li>Dashboard</li>
+                <li><a th:href="@{/klien-asisten}">Klien</a></li>
+                <li><a th:href="@{/event-asisten}">Event</a></li>
+                <li><a th:href="@{/budgeting-asisten}">Budgeting</a></li>
+                <li><a th:href="@{/laporan-asisten}">Laporan</a></li>
+            </ul>
+            <div class="icon">
+                <img th:src="@{/img/notification-icon.png}" alt="notif icon"/>
+                <img id="user-btn" th:src="@{/img/profile-icon.png}" alt="profile icon" />
+            </div>
+
+            <!--POP UP LOGOUT -->
+            <div id="popup-logout">
+                <p th:text="${namaAsisten} ?: 'Asisten'">Asisten</p>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="main-img">
+            <div class="overlay"></div>
+            <img th:src="@{/img/event-hero.jpg}" alt="event image">
+        </section>
+
+        <section id="main-section">
+            <div id="info-card">
+                <div id="event-ditangani">
+                    <h1 th:text="${totalEvent}">18</h1>
+                    <p>Event Ditangani</p>
+                </div>
+
+                <div id="klien-aktif">
+                    <h1 th:text="${totalKlien}">4</h1>
+                    <p>Klien</p>
+                </div>
+
+                <div id="event-tuntas">
+                    <h1 th:text="${eventTuntas}">12</h1>
+                    <p>Event Tuntas</p>
+                </div>
+            </div>
+                
+            <div id="table-container">
+                <h1>Event Terdekat</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Event</th>
+                            <th scope="col">Klien</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Asisten</th>
+                        </tr>    
+                    </thead>
+                    <tbody>
+                        <tr th:each="event : ${eventBerlangsung}">
+                            <td th:text="${event.namaEvent}">Sweet 17</td>
+                            <td th:text="${event.namaKlien}">Vevilla</td>
+                            <td th:text="${#temporals.format(event.tanggal, 'dd MMMM yyyy')}">4 November 2025</td>
+                            <td th:text="${event.namaAsisten}">Agatha</td>
+                        </tr>
+                        <!-- Jika tidak ada data -->
+                        <tr th:if="${#lists.isEmpty(eventBerlangsung)}">
+                            <td colspan="4" style="text-align: center;">Tidak ada event yang sedang berlangsung</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

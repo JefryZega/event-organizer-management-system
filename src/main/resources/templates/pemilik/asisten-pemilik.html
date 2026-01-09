@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selaras Organizer</title>
+    <link rel="stylesheet" th:href="@{/css/asisten-pemilik.css}"/>
+    <script th:src="@{/js/asistenPemilik.js}" defer></script>
+    <script th:src="@{/js/logoutScript.js}" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <img th:src="@{/img/selaras-logo.png}" alt="logo selaras organizer"/>
+            <ul>
+                <li><a th:href="@{/dashboard-pemilik}">Dashboard</a></li>
+                <li>Asisten</li>
+                <li><a th:href="@{/vendor-pemilik}">Vendor</a></li>
+                <li><a th:href="@{/jenis-vendor-pemilik}">Jenis Vendor</a></li>
+                <li><a th:href="@{/laporan-pemilik}">Laporan</a></li>
+            </ul>
+            <div class="icon">
+                <img th:src="@{/img/notification-icon.png}" alt="notif icon" />
+                <img id="user-btn" th:src="@{/img/profile-icon.png}" alt="profile icon" />
+            </div>
+
+            <!--POP UP LOGOUT -->
+            <div id="popup-logout">
+                <p th:text="${namaPemilik} ?: 'Pemilik'">Name</p>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="main-section">
+        <h1>Daftar Asisten</h1>
+
+        <div th:if="${error}" class="error-message">
+            <p th:text="${error}"></p>
+        </div>
+        <div th:if="${success}" class="success-message">
+            <p th:text="${success}"></p>
+        </div>
+
+        <div class="table-container">
+            <table> 
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">Kontak</th>
+                        <th scope="col">Email</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>    
+                </thead>
+                
+                <tbody>
+                    <tr th:each="asisten : ${asistenList}">
+                        <td th:text="${asisten.id}">1</td>
+                        <td th:text="${asisten.nama}">Abigail Maharani</td>
+                        <td th:text="${asisten.alamat}">Jl Taman Kopo Indah</td>
+                        <td th:text="${asisten.kontak}">0812345678</td>
+                        <td th:text="${asisten.email}">abigail@gmail.com</td>
+                        <td><button class="edit"
+                                th:data-id="${asisten.id}"
+                                th:data-nama="${asisten.nama}"
+                                th:data-alamat="${asisten.alamat}"
+                                th:data-kontak="${asisten.kontak}"
+                                th:data-email="${asisten.email}">
+                            Edit
+                        </button></td>
+                        <td><button class="hapus" th:data-id="${asisten.id}">Hapus</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <button id="btnTambah">Tambah Asisten</button>
+
+        <div class="tambah-asisten">
+            <div class="popup-content">
+                <form id="formTambah" th:action="@{/asisten-pemilik/tambah}" method="post">
+                    <h3>Tambah Asisten</h3>
+                    <input type="text" name="nama" placeholder="Nama Asisten" required>
+                    <input type="text" name="alamat" placeholder="Alamat" required>
+                    <input type="text" name="kontak" placeholder="Kontak" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <div>
+                        <input type="button" id="btnCloseTambah" value="Tutup">
+                        <input type="submit" id="btnSimpanTambah" value="Simpan">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="edit-asisten">
+            <div class="popup-content">
+                <form id="formEdit" th:action="@{/asisten-pemilik/edit}" method="post">
+                    <input type="hidden" id="editId" name="id">
+                    <h3>Edit Asisten</h3>   
+                    <input type="text" id="editNama" name="nama" required>
+                    <input type="text" id="editAlamat" name="alamat" required>
+                    <input type="text" id="editKontak" name="kontak" required>
+                    <input type="email" id="editEmail" name="email" required>
+                    <div>
+                        <input type="button" id="btnCloseEdit" value="Tutup">
+                        <input type="submit" id="btnSimpanEdit" value="Simpan">
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="hapus-asisten">
+            <div class="popup-content">
+                <form id="formHapus" th:action="@{/asisten-pemilik/hapus}" method="post">
+                    <input type="hidden" id="hapusId" name="id">
+                    <h3>Konfirmasi Hapus</h3>
+                    <p>Apakah Anda yakin ingin menghapus data ini?</p>
+                    <div>
+                        <input type="button" id="btnCloseHapus" value="Tutup">
+                        <input type="submit" id="btnConfirmHapus" value="Ya">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

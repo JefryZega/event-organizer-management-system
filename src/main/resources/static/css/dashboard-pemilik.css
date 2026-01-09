@@ -1,0 +1,239 @@
+:root {
+    --navbar-color: #41959D;
+    --hero-color: #C0DEE5;
+    --btn-color: #07575B;
+}
+
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "main";
+    grid-template-rows: 5em 1fr;
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar {
+    display: none; 
+}
+
+header {
+    grid-area: header;
+    background-color: var(--navbar-color);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+nav {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+nav>img:first-of-type {
+    width: 4em;
+    height: 4em;
+}
+
+.icon {
+    display: flex;
+    gap: 3em;
+}
+
+.icon>img {
+    width: 2.5em;
+    padding: 0.3em;
+}
+
+.icon>img:hover {
+    cursor: pointer;
+    background-color: #2a858a;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    gap: 4em;
+}
+
+li {
+    cursor: pointer;
+    padding: 0.5em;
+    font-size: 1.3em;
+    margin: 0.5em;
+}
+
+li:hover {
+    background-color: #188187;
+    transition: 0.5s;
+}
+
+li:first-of-type {
+    background-color: #188187;
+}
+
+a {
+    all: unset;
+}
+
+
+/* POPUP LOGOUT */
+#popup-logout {
+    padding: 1em;
+    width: 8rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    position: absolute;
+    top: 4em;
+    right: 3.5em;
+    border-radius: 0.5em;
+    border: 1px solid #000;
+    background-color: #F5F5F5;
+}
+
+#popup-logout p {
+    color: #000;
+}
+
+#popup-logout button {
+    padding: 0.5em;
+    width: 100%;
+    border-radius: 0.5em;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+#popup-logout button:hover {
+    color: #ffffff;
+    transition: 0.5s;
+    background-color: red;
+}
+
+
+/* MAIN */
+main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+/* CONTAINER IMG*/
+#main-img {
+    margin-top: 2em;
+    position: relative;      
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #ddd;
+}
+
+/* Gambar */
+#main-img img {
+    width: 95%;
+    height: 100%;
+    border-radius: 1em;
+    opacity: 0.7;
+}
+
+/* Overlay gelap */
+#main-img .overlay {
+    position: absolute;
+    top: 0;
+    width: 95%;
+    height: 100%;
+    border-radius: 1em;
+    background: rgba(255, 255, 255, 0.3); 
+    z-index: 2;
+}
+
+
+/* MAIN SECTION */
+#main-section {
+    width: 95%;
+    display: flex;
+    gap: 1em;
+    margin-bottom: 2em;
+}
+
+#info-card {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+}
+
+#info-card div {
+    width: 100%;
+    height: 7rem;
+    border-radius: 1em;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    border: 1px solid #ddd;
+}
+
+
+/* TABLE */
+#table-container {
+    padding: 1em;
+    width: 100%;
+    height: 100%;      
+    overflow-y: auto;       
+    border: 1px solid #ddd;
+    border-radius: 1em;
+    background-color: #fff;
+}
+
+#table-container h1 {
+    padding-bottom: 0.5em;
+    position: sticky;
+    top: -1px;
+    z-index: 2;
+    text-align: center;
+    background-color: #fff;
+}
+
+#table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#table-container thead th {
+    padding: 0.5em;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+#table-container tbody td {
+    padding: 1em;
+}
+
+
+
