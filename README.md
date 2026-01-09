@@ -5,6 +5,14 @@ Event Organizer Management System adalah aplikasi web untuk mengelola operasiona
 
 Aplikasi ini menerapkan role-based access untuk membedakan hak akses antara pemilik usaha dan asisten, serta menggunakan basis data relasional untuk merepresentasikan alur bisnis nyata pada industri jasa event organizer.
 
+## Cara Pakai
+1. Clone repository ini
+2. Cari file database di src/main/resources/dbSelaras.sql
+3. Import database tersebut di Postgres dan jalankan
+4. Buka file application.properties dan sesuai dengan environtmen pribadi
+5. Masuk ke terminal pastikan berada di folder yang sama
+6. Ketikan perintah ./gradlew bootRun
+7. Buka chrome ketik http://localhost:8080
 
 ## Tampilan UI
 
