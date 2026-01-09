@@ -13,6 +13,9 @@ Aplikasi ini menerapkan role-based access untuk membedakan hak akses antara pemi
 5. Masuk ke terminal pastikan berada di folder yang sama
 6. Ketikan perintah ./gradlew bootRun
 7. Buka chrome ketik http://localhost:8080
+8. Login
+   username: Abigail Maharani  pass: abigail123
+   username: Budi Laraso  pass: budi123
 
 
 ## Tampilan UI
