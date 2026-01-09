@@ -6,6 +6,14 @@ Event Organizer Management System adalah aplikasi web untuk mengelola operasiona
 Aplikasi ini menerapkan role-based access untuk membedakan hak akses antara pemilik usaha dan asisten, serta menggunakan basis data relasional untuk merepresentasikan alur bisnis nyata pada industri jasa event organizer.
 
 
+## Tampilan UI
+
+![Home Page](screenshot-page/home-page.png)
+![Login Page](screenshot-page/login-page.png)
+![Register Page](screenshot-page/register-page.png)
+![Dashboard Pemilik](screenshot-page/dashboard-pemilik.png)
+
+
 Key Features
 - Client, Event, and Vendor Management
 - Vendor categorization with price range reference
